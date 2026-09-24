@@ -23,7 +23,7 @@ This section has the following three subsctions:
 
 **Economic Factors** - Our project is free/inexpensive to complete, but must be fully completed by December 3, with a check-in on October 8. This limits our scope by limiting how much time we have to build our project.
 
-**Regulatory Compliance** (Security & Access) - If Group Leader is to have any identifiable or personal information (such as with accounts), it is a high priority to minimize risks of vulnerabilities in the software. 
+**Regulatory Compliance (Security & Access)** - If Group Leader is to have any identifiable or personal information (such as with accounts), it is a high priority to minimize risks of vulnerabilities in the software. 
 
 **Reliability** - We need to ensure that Group Leader is reliable, and that there will not be problems. It should be able to successfully complete all needed functions without issue.
 
