@@ -20,4 +20,15 @@ This section has the following three subsctions:
 [OBJECTIVES HERE]
 
 **2.2.3 Constraints**
-[CONSTRAINTS HERE]
+
+**Economic Factors** - Our project is free/inexpensive to complete, but must be fully completed by December 3, with a check-in on October 8. This limits our scope by limiting how much time we have to build our project.
+
+**Regulatory Compliance** (Security & Access) - If Group Leader is to have any identifiable or personal information (such as with accounts), it is a high priority to minimize risks of vulnerabilities in the software. 
+
+**Reliability** - We need to ensure that Group Leader is reliable, and that there will not be problems. It should be able to successfully complete all needed functions without issue.
+
+**Sustainability & Environmental Impacts** - Group Leader should be easily sustained without any noticeable footprint. 
+
+**Ethics** - The project must not cross any ethical boundaries. A focus on safety/security should solve any ethical problems with the design, but that does not mean other issues cannot arise and we will plan our project to ensure this is not a problem.
+
+**Societal Impacts** - The project itself is relatively light, when it comes to societal impacts either way. One potential issue is misuse of data the site is given, which we will ensure is not going to happen.
