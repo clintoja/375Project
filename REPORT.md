@@ -9,3 +9,15 @@
    
 
 <img width="845" height="329" alt="Screenshot from 2026-09-17 21-52-37" src="https://github.com/user-attachments/assets/da71ae7c-8874-4e2d-bb96-48019cc10f2e" />
+
+**2.2 Design Requirements**
+This section has the following three subsctions:
+
+**2.2.1 Functions**
+[FUNCTIONS HERE]
+
+**2.2.2 Objectives**
+[OBJECTIVES HERE]
+
+**2.2.3 Constraints**
+[CONSTRAINTS HERE]
