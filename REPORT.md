@@ -14,7 +14,18 @@
 This section has the following three subsctions:
 
 **2.2.1 Functions**
-[FUNCTIONS HERE]
+The system will perform the following functions:
+
+   1. **Create and manage user accounts** to allow users to sign in and maintain personal schedules.
+   2. **Collect and update weekly availability** through a reusable master schedule or a group-specific schedule.
+   3. **Record meeting preferences** and distinguish between available, available if necessary, and unavailable time slots.
+   4. **Create and manage events** with a group name, meeting purpose, duration, candidate dates, and permitted meeting hours.
+   5. **Generate shareable invitation links** to allow participants to access events and submit availability.
+   6. **Track availability submissions** and identify missing responses as unknown.
+   7. **Calculate and rank suitable meeting times** based on participant availability and preferences within the event’s scheduling constraints.
+   8. **Display group availability** through a heatmap that shows participant availability for each time slot.
+   9. **Confirm and display meeting details** after the organizer selects a final meeting time.
+   10. **Repeat the scheduling process automatically** at specified intervals for recurring events.
 
 **2.2.2 Objectives**
 
