@@ -48,3 +48,13 @@ The objectives of the Group Leader application are as follows: we aim to be usef
 **Ethics** - The project must not cross any ethical boundaries. A focus on safety/security should solve any ethical problems with the design, but that does not mean other issues cannot arise and we will plan our project to ensure this is not a problem.
 
 **Societal Impacts** - The project itself is relatively light, when it comes to societal impacts either way. One potential issue is misuse of data the site is given, which we will ensure is not going to happen.
+
+**3.1 Solution 1**
+
+**Design 1:**
+
+A website that allows for a user to create and send a link to fill out a weekly schedule, which anyone with the link can do without so much as logging in. This schedule allows for various types of options, such as green (good), yellow (complicated), red (not going to work out), and white (indifferent).
+
+This design is meant to allow for weekly planning, determining what times everyone is free every week in order to more easily make decisions on when works best for everyone. The varied colors are intended to allow for more specific clarification, for example, if you are a student, and you know that next semester you have a class on a time you are currently free, you'd mark it yellow and clarify.
+
+This design got scrapped early on as it is simply too complex and would be quite difficult to visualize at a glance when combining the schedules into one visual. In this solution, testing is also rather complicated, with so many possible options, which may be a bit out of our current scope.
