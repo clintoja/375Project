@@ -49,12 +49,54 @@ The objectives of the Group Leader application are as follows: we aim to be usef
 
 **Societal Impacts** - The project itself is relatively light, when it comes to societal impacts either way. One potential issue is misuse of data the site is given, which we will ensure is not going to happen.
 
-**3.1 Solution 1**
+**3.1 Solutions 1 & 2**
 
-**Design 1:**
+   **Design 1:**
 
-A website that allows for a user to create and send a link to fill out a weekly schedule, which anyone with the link can do without so much as logging in. This schedule allows for various types of options, such as green (good), yellow (complicated), red (not going to work out), and white (indifferent).
+   A website that allows for a user to create and send a link to fill out a weekly schedule, which anyone with the link can do without so much as logging in. This schedule allows for various types of options, such as green (good), yellow (complicated), red (not going to work out), and white (indifferent).
 
-This design is meant to allow for weekly planning, determining what times everyone is free every week in order to more easily make decisions on when works best for everyone. The varied colors are intended to allow for more specific clarification, for example, if you are a student, and you know that next semester you have a class on a time you are currently free, you'd mark it yellow and clarify.
+   This design is meant to allow for weekly planning, determining what times everyone is free every week in order to more easily make decisions on when works best for everyone. The varied colors are intended to allow for more specific clarification, for example, if you are a student, and you know that next semester you have a class on a time you are currently free, you'd mark it yellow and clarify.
 
-This design got scrapped early on as it is simply too complex and would be quite difficult to visualize at a glance when combining the schedules into one visual. In this solution, testing is also rather complicated, with so many possible options, which may be a bit out of our current scope.
+   This design got scrapped early on as it is simply too complex and would be quite difficult to visualize at a glance when combining the schedules into one visual. In this solution, testing is also rather complicated, with so many possible options, which may be a bit out of our current scope.
+
+   **Design 2:**
+
+   Our solution is a schedule website allowing for groups to schedule events and view the best time
+for people to meet, when they have complicated schedules. The website needs to be quick,
+intuitive, and easy to use. When the user opens the web-page, there should be minimal clutter,
+simply presented with two choices: create a meeting, or join one. Joining requires a code from
+the admin of the meeting however. When someone creates a meeting, they select the type of
+hours the meeting can occur: i.e. evenings, night, business hours, or custom. As well, the number
+of people in the meeting, and they are provided a link and code to send to others in the meet.
+When joining the meeting, the joiner will provide his availability by selecting the times they are
+available. This design slightly differs from solution 1, and is simplified to only be a binary
+available or not available. This sends the data to the database, which updates the hosts master
+link, where the host can then select a time the group meets. The joiners can then reopen the link
+to see the selected official meeting time. There will also be an option to select if this meeting is
+weekly, or one time. Once everyone has added their schedule, we may create an algorithm to
+suggest the best time. This meets most if not all of our functions, and fits within our constraints
+of being ethical and having only positive societal impacts.
+
+   The basic architecture we plan on creating for the site is to host a MVC application which will
+pull from a mysql database. On the database, each meet will use a hex code as a primary key,
+which will also be the path for the sharable link of the meet. We will store times people are
+unavailable in the database, then when combining people’s schedules, we will gray out any block
+of time where people are unavailable. Also stored is if this unavailability will be repeated
+weekly. Since we could host the website and database locally on our machine, this architecture
+solution meets this constraint. In this solution, accounts are not present, so we do not have to
+consider regulatory compliance. For reliability, we could see to it with testing, that the program
+is reliable.
+
+**3.2 Solution 3**
+
+   **Final Design:**
+
+   Our final solution builds upon Design 2 by introducing user accounts, improved scheduling functionality, and an algorithm to determine the best available meeting times. The website will allow users to create groups, manage their weekly availability, and schedule meetings based on the availability of group members. The goal is to create a system that is intuitive, reliable, and easy to use while addressing the limitations identified in our previous designs.
+
+   One of the main deficiencies of Design 2 was that users would have to enter their availability every time they joined a new meeting. To address this, Design 3 introduces user accounts that allow individuals to save and manage their weekly availability. Users will be able to maintain a master schedule while also adjusting their availability for specific groups or meetings. This reduces repetitive data entry and makes the system more practical for groups that meet regularly.
+
+   Another deficiency of Design 2 was that it relied on the meeting host to manually review everyone's availability and select a meeting time. In Design 3, we will implement a scheduling algorithm that evaluates the availability of all participants and ranks possible meeting times. The algorithm will prioritize times when the greatest number of participants are available, while also considering preferred meeting times when provided. This will allow the host to make an informed decision without having to manually compare individual schedules.
+
+   Design 3 will also improve how recurring meetings are handled. Rather than requiring users to repeatedly create new meetings, the system will support recurring events that automatically reevaluate participant availability for each occurrence. Users will also be able to create one-time events, invite other members, and view confirmed meeting times within their groups
+
+   From a testing perspective, Design 3 provides a more structured and testable solution. The scheduling algorithm can be tested independently using predefined availability datasets to verify that it correctly identifies and ranks meeting times. Unit tests can be used to verify individual functions, such as availability updates, conflict detection, and recurring event calculations. Integration testing can verify that user accounts, groups, events, and the database interact correctly. Finally, usability testing can help determine whether users can easily create meetings, enter their availability, and understand the suggested meeting times.
