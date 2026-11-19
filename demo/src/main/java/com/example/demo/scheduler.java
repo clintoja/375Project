@@ -10,5 +10,5 @@ public class scheduler {
     private int scheduler_id; 
     private ZonedDateTime startTime;
         private ZonedDateTime endTime;
-
+    private int meeting_id;
 }

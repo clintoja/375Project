@@ -11,4 +11,5 @@ public class availability {
     private ZonedDateTime startTime;
     private ZonedDateTime endTime;
     private String weekDay;
+    private int repeating; 
 }
