@@ -48,12 +48,49 @@ public class site_context {
 
             s.printStackTrace();
         }
+        AddSampleData();
 
 
 
     }
 
-    
+    public void AddSampleData(){
+
+        try {
+            Connection connection; 
+            connection = DriverManager.getConnection("jdbc:sqlite:schedule.db" );
+
+
+            
+
+
+            Statement create_tables_state = connection.createStatement();
+
+            create_tables_state.execute("insert into admin_user VALUES(1, 'admin', 'admin' ); " + "\r\n" + 
+                "insert into meeting VALUES(1, 'my meeting', 'wdawdawdawd', 1); " + "\r\n" + 
+                "insert into scheduler VALUES(1, '2026-09-01 00:00', '2026-09-08 00:00', 60, 1); " + "\r\n" + 
+                "insert into user VALUES(1, 1, 'james'); " + "\r\n" + 
+                "insert into user VALUES(2, 1, 'james2'); " + "\r\n" + 
+                "insert into user VALUES(3, 1, 'james3'); " + "\r\n" + 
+                "insert into availability VALUES(1, '2026-09-01 00:00', '2026-09-01 02:00', ); " + "\r\n" +
+                "insert into availability VALUES(1, '2026-09-02 00:00', '2026-09-01 02:00', ); " + "\r\n" +
+                "insert into availability VALUES(2, '2026-09-01 00:00', '2026-09-01 02:00', ); " + "\r\n" +
+                "insert into availability VALUES(2, '2026-09-02 00:00', '2026-09-01 02:00', ); " + "\r\n" +
+                "insert into availability VALUES(3, '2026-09-01 00:00', '2026-09-01 02:00', ); " + "\r\n" +
+                "insert into availability VALUES(3, '2026-09-02 00:00', '2026-09-01 02:00', ); " + "\r\n" 
+
+            );
+                                
+
+            
+
+
+        } catch (SQLException s){
+
+            s.printStackTrace();
+        }
+
+    }
     public  ArrayList<user> GetUsersFromMeetingId(int meeting_id){
 
 
@@ -66,7 +103,7 @@ public class site_context {
             users_from_meetingid = user_model_statement.executeQuery("select * from user where meeting_id = " + meeting_id + ";");
             ArrayList<user> tmp = new  ArrayList<>();
             while (users_from_meetingid.next()){
-                user u = new user(users_from_meetingid.getInt("user_id"),users_from_meetingid.getInt("meeting_id") );
+                user u = new user(users_from_meetingid.getInt("user_id"),users_from_meetingid.getInt("meeting_id"), users_from_meetingid.getString("user_name") );
 
                 tmp.add(u);
 

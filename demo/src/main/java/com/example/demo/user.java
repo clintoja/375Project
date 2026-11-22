@@ -9,17 +9,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class user {
 
 
-    user (int user, int meeting_id ){
+    user (int user, int meeting_id, String user_name ){
 
         
         this.user_id = user;
         this.meeting_id = meeting_id;
+        this.user_name = user_name;
     }
     private int user_id;
+    private String user_name;
     private int meeting_id;
     user() {}
 
     int GetUserId(){ return user_id; }
-
+    String GetUserName() {return user_name; }
     int GetMeetingId() { return meeting_id; }
 }
