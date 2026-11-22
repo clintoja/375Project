@@ -28,4 +28,11 @@ public class availability {
 
 
     }
+
+    int GetAvailabilityId() { return availability_id; }
+    int GetUserId() { return user_id; }
+    LocalDateTime GetStartTime() { return startTime; }
+    LocalDateTime GetEndTime() { return endTime; }
+    String GetWeekDay() { return weekDay; }
+    int GetRepeating() { return repeating; }
 }

@@ -21,4 +21,9 @@ public class meeting {
 
        
     }
+
+    int GetMeetingId() { return meeting_id; }
+    int GetAdminUserId() { return admin_user_id; }
+    String GetMeetingName() { return meeting_name; }
+    String GetMeetingDescription() { return meeting_description; }
 }

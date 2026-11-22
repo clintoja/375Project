@@ -20,5 +20,6 @@ public class user {
     user() {}
 
     int GetUserId(){ return user_id; }
-   
+
+    int GetMeetingId() { return meeting_id; }
 }
