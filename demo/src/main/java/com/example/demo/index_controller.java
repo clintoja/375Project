@@ -42,7 +42,7 @@ public String view_meet(@RequestParam String meet_id, Model model) {
     model.addAttribute(meet);
     model.addAttribute(users);
     
-
+    
     return "view-meet";
 
     
