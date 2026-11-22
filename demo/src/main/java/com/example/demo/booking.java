@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 import org.springframework.boot.SpringApplication;
@@ -8,7 +9,17 @@ public class booking {
     
     private int booking_id;
     private int scheduler_id; 
-    private ZonedDateTime startTime;
-    private ZonedDateTime endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+
+    booking() {}
+
+    booking(int booking_id, int scheduler_id, LocalDateTime starTime, LocalDateTime endTime){
+
+        this.booking_id = booking_id;
+        this.scheduler_id = scheduler_id;
+        this.startTime = starTime;
+        this.endTime = endTime;
+    }
 
 }

@@ -8,7 +8,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class scheduler {
     private int scheduler_id; 
-    private ZonedDateTime startTime;
-        private ZonedDateTime endTime;
+    private LocalDateTime startTime;
+        private LocalDateTime endTime;
     private int meeting_id;
+
+
+
+    scheduler() {}
+
+    scheduler(int scheduler_id, LocalDateTime startTime, LocalDateTime endTime, int meet_id ){
+
+        this.scheduler_id = scheduler_id;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.meeting_id = meet_id;
+    }
+
 }

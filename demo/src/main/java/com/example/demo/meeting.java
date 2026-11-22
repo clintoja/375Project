@@ -8,5 +8,17 @@ public class meeting {
     private int admin_user_id;
     private String meeting_name;
     private String meeting_description;
+    
 
+    meeting(){};
+    meeting (int meeting_id, int admin_user_id, String meeting_name, String meeting_description){
+
+
+       this.meeting_id = meeting_id;
+       this.admin_user_id = admin_user_id;
+       this.meeting_name = meeting_name;
+       this.meeting_description = meeting_description;
+
+       
+    }
 }

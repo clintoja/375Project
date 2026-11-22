@@ -12,7 +12,8 @@ public class main {
     public static void main (String[] args){
 
 
-        site_context sc = new site_context();
+        
+
         SpringApplication.run(main.class, args);
 
     }
