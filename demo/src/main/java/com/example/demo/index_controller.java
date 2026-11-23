@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller 
 public class index_controller {
@@ -42,8 +45,14 @@ public String view_meet(@RequestParam String meet_id, Model model) {
     model.addAttribute(au) ;
     model.addAttribute(meet);
     model.addAttribute(users);
-    
 
+
+    ArrayList<booking> books = mdr.GetBookingFromSchedule(mdr.GetLatestScheduler(Integer.parseInt(meet_id)).GetSchedulerId());
+    if (books.size() > 0){
+        model.addAttribute(books);
+    }
+
+    model.addAttribute(mdr.GetLatestScheduler(Integer.parseInt(meet_id)));
     return "view-meet";
 
     
@@ -59,6 +68,8 @@ public String edit_meet(@RequestParam String meet_id, Model model) {
     model.addAttribute(au) ;
     model.addAttribute(meet);
     model.addAttribute(users);
+
+
     return "edit_meet";
 
     
@@ -66,8 +77,21 @@ public String edit_meet(@RequestParam String meet_id, Model model) {
 
 
 
+
+
+
+
 //add postmapping constructors for submitting forms
 
+
+
+
+@PostMapping("view-meet")
+public String postMethodName(@RequestBody String entity) {
+    //TODO: process POST request
+    
+    return entity;
+}
 
 
 }

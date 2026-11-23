@@ -44,7 +44,7 @@ public class site_context {
                       create_tables_state.execute(             "create table if not exists availability ( availability_id INTEGER PRIMARY KEY, begin_time DATETIME, end_time DATETIME , week_day VARCHAR(32), user_id INT REFERENCES user(user_id), repeating BIT ); \r\n");
                                 
                                 
-            AddSampleData();
+            //AddSampleData();
             connection.close();
         } catch (SQLException s){
 
@@ -111,6 +111,8 @@ public class site_context {
 
 
             }
+            users_from_meetingid.close();
+            connection.close();
             return tmp;
 
         }catch (SQLException s){
@@ -145,7 +147,11 @@ public class site_context {
 
 
             }
+
+            availability_from_userid.close();
+            connection.close();
             return tmp;
+
 
         }catch (SQLException s){
             s.printStackTrace();
@@ -154,6 +160,82 @@ public class site_context {
 
     }
 
+
+    public  ArrayList<booking> GetBookingFromSchedule(int scheduler_id){
+
+
+        try{
+            Connection connection; 
+            connection = DriverManager.getConnection("jdbc:sqlite:schedule.db" );
+
+            Statement user_model_statement = connection.createStatement();
+            ResultSet booking_from_meeting;
+            booking_from_meeting = user_model_statement.executeQuery("select * from booking where scheduler_id = " + scheduler_id + ";");
+            ArrayList<booking> tmp = new  ArrayList<>();
+            while (booking_from_meeting.next()){
+
+
+                LocalDateTime start,end;
+                DateTimeFormatter dtf;
+                dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                start = LocalDateTime.parse(booking_from_meeting.getString("start_time"),dtf);
+                end = LocalDateTime.parse(booking_from_meeting.getString("end_time"),dtf);
+                booking a = new booking(booking_from_meeting.getInt("booking_id"), booking_from_meeting.getInt("scheduler_id"),start,end );
+
+                tmp.add(a);
+
+
+            }
+
+            booking_from_meeting.close();
+            connection.close();
+            return tmp;
+
+
+        }catch (SQLException s){
+            s.printStackTrace();
+            return new ArrayList<>();
+        }
+
+    }
+
+    public  ArrayList<scheduler> GetSchedulerFromMeeting(int user_id){
+
+
+        try{
+            Connection connection; 
+            connection = DriverManager.getConnection("jdbc:sqlite:schedule.db" );
+
+            Statement user_model_statement = connection.createStatement();
+            ResultSet scheduler_from_meeting;
+            scheduler_from_meeting = user_model_statement.executeQuery("select * from availability where user_id = " + user_id + ";");
+            ArrayList<scheduler> tmp = new  ArrayList<>();
+            while (scheduler_from_meeting.next()){
+
+
+                LocalDateTime start,end;
+                DateTimeFormatter dtf;
+                dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                start = LocalDateTime.parse(scheduler_from_meeting.getString("start_date"),dtf);
+                end = LocalDateTime.parse(scheduler_from_meeting.getString("end_date"),dtf);
+                scheduler a = new scheduler(scheduler_from_meeting.getInt("scheduler_id"),start,end, scheduler_from_meeting.getInt("minutes"), scheduler_from_meeting.getInt("meeting_id"));
+
+                tmp.add(a);
+
+
+            }
+
+            scheduler_from_meeting.close();
+            connection.close();
+            return tmp;
+
+
+        }catch (SQLException s){
+            s.printStackTrace();
+            return new ArrayList<>();
+        }
+
+    }
     public meeting GetMeeting(int meeting_id){
 
 
@@ -345,6 +427,14 @@ public class site_context {
             return 0;
         }
     }
+
+
+
+
+
+
+
+
 
 
     /**

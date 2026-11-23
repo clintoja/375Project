@@ -2,6 +2,7 @@ package com.example.demo;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class meeting_data_repository {
 
@@ -56,9 +57,20 @@ public class meeting_data_repository {
         return  null;
     }
 
+    ArrayList<booking> GetBookingFromSchedule(int scheduler_id){
 
+        
+        return sc.GetBookingFromSchedule(scheduler_id);
+    }
 
+    ArrayList<scheduler> GetSchedulerFromMeeting(int meeting_id){
 
+        return  sc.GetSchedulerFromMeeting( meeting_id);
+    }
+
+    scheduler GetLastestScheduler(int meeting_id){
+        return  sc.GetSchedulerFromMeeting( meeting_id).stream().max(Comparator.comparing(scheduler::GetStartTime)).orElse(null);
+    }
 
     //create functions are limited and will need work depending on how we do front end
     int CreateBooking(){
@@ -92,6 +104,7 @@ public class meeting_data_repository {
         return sc.CreateUser(new user());
 
     }
+
 
     
 
