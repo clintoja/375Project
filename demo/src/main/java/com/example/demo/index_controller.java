@@ -34,15 +34,16 @@ public String view_meet(@RequestParam String meet_id, Model model) {
 
     ArrayList<user> users = mdr.GetUsersFromMeeting(Integer.parseInt(meet_id));
     admin_user au = mdr.GetAdminUserFromMeetingId(Integer.parseInt(meet_id));
+    System.out.print(meet.GetMeetingName());
     for (user u: users){
         model.addAttribute(mdr.GetAvailabilityFromUserId(u.GetUserId()));
     }
-    model.addAttribute(mdr.GetAvailableTimes(Integer.parseInt(meet_id)));
+    //model.addAttribute(mdr.GetAvailableTimes(Integer.parseInt(meet_id)));
     model.addAttribute(au) ;
     model.addAttribute(meet);
     model.addAttribute(users);
     
-    
+
     return "view-meet";
 
     
@@ -66,5 +67,7 @@ public String edit_meet(@RequestParam String meet_id, Model model) {
 
 
 //add postmapping constructors for submitting forms
+
+
 
 }
