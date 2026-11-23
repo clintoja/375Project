@@ -68,7 +68,7 @@ public class meeting_data_repository {
         return  sc.GetSchedulerFromMeeting( meeting_id);
     }
 
-    scheduler GetLastestScheduler(int meeting_id){
+    scheduler GetLatestScheduler(int meeting_id){
         return  sc.GetSchedulerFromMeeting( meeting_id).stream().max(Comparator.comparing(scheduler::GetStartTime)).orElse(null);
     }
 

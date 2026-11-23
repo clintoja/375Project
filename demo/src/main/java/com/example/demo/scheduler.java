@@ -27,7 +27,7 @@ private int minutes;
     public LocalDateTime GetStartTime() {
         return startTime;
     }
-    public int getSchedulerId() {
+    public int GetSchedulerId() {
         return scheduler_id;
     }
 }
