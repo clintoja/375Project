@@ -208,7 +208,7 @@ public class site_context {
 
             Statement user_model_statement = connection.createStatement();
             ResultSet scheduler_from_meeting;
-            scheduler_from_meeting = user_model_statement.executeQuery("select * from availability where user_id = " + user_id + ";");
+            scheduler_from_meeting = user_model_statement.executeQuery("select * from scheduler where meeting_id = " + user_id + ";");
             ArrayList<scheduler> tmp = new  ArrayList<>();
             while (scheduler_from_meeting.next()){
 
