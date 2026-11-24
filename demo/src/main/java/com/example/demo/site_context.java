@@ -15,10 +15,12 @@ public class site_context {
 
     private final String databaseUrl;
 
+    // The app uses schedule.db in its working directory.
     site_context(){
         this("jdbc:sqlite:schedule.db");
     }
 
+    // Tests can supply a temporary SQLite file to keep their data separate.
     site_context(String databaseUrl) {
         this.databaseUrl = databaseUrl;
         CreateDB();
