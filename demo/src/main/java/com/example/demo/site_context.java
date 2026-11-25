@@ -12,27 +12,34 @@ import java.util.ArrayList;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 
 public class site_context {
-    
 
+    private final String databaseUrl;
+
+    // The app uses schedule.db in its working directory.
     site_context(){
-        CreateDB();
+        this("jdbc:sqlite:schedule.db");
+    }
 
+    // Tests can supply a temporary SQLite file to keep their data separate.
+    site_context(String databaseUrl) {
+        this.databaseUrl = databaseUrl;
+        CreateDB();
     }
 
     /**
-     * Opens a connection to the scheduling database in the app's working directory.
+     * Opens a connection to the configured scheduling database.
      *
      * @return an open connection that the caller must close
      * @throws SQLException if the connection cannot be opened
      */
     private Connection OpenConnection() throws SQLException {
-        return DriverManager.getConnection("jdbc:sqlite:schedule.db");
+        return DriverManager.getConnection(databaseUrl);
     }
 
     private void CreateDB(){
         try {
             Connection connection; 
-            connection = DriverManager.getConnection("jdbc:sqlite:schedule.db" );
+            connection = OpenConnection();
 
             Statement create_tables_state = connection.createStatement();
 
