@@ -34,12 +34,12 @@ public String index(Model model) {
 @GetMapping("view-meet")
 public String view_meet(@RequestParam String meet_id, Model model) {
     meeting meet = mdr.GetMeetingFromMeetId(Integer.parseInt(meet_id));
-
+    ArrayList<availability> availabilities = new ArrayList<>();
     ArrayList<user> users = mdr.GetUsersFromMeeting(Integer.parseInt(meet_id));
     admin_user au = mdr.GetAdminUserFromMeetingId(Integer.parseInt(meet_id));
     System.out.print(meet.GetMeetingName());
     for (user u: users){
-        model.addAttribute(mdr.GetAvailabilityFromUserId(u.GetUserId()));
+        model.addAttribute("availability", mdr.GetAvailabilityFromUserId(u.GetUserId()));
     }
     //model.addAttribute(mdr.GetAvailableTimes(Integer.parseInt(meet_id)));
     model.addAttribute("au", au) ;
@@ -49,7 +49,7 @@ public String view_meet(@RequestParam String meet_id, Model model) {
 
     ArrayList<booking> books = mdr.GetBookingFromSchedule(mdr.GetLatestScheduler(Integer.parseInt(meet_id)).GetSchedulerId());
     if (books.size() > 0){
-        model.addAttribute(books);
+        model.addAttribute("books", books);
     }
 
     model.addAttribute(mdr.GetLatestScheduler(Integer.parseInt(meet_id)));

@@ -11,12 +11,16 @@
 </head>
 
 <body>
-    View Meet test
-   <p th:text="'ID: ' + ${param.meet_id}">ID: </p> 
-   <p th:text="'Meeting Id: ' + ${meet.GetMeetingId()}">Meeting Id: </p>
-   <p th:text="'Meeting Admin Id: ' + ${meet.GetAdminUserId()}">Admin: </p>
-   <p th:text="'Meeting Name: ' + ${meet.GetMeetingName()}">Meeting Name: </p>
-   <p th:text="'Meeting Description: ' + ${meet.GetMeetingDescription()}">Meeting Description: </p>
+    -View Meet test-
+    <p> ----------------------------------------- </p>
+    <p> -Meeting Test- </p>
+    <p th:text="'ID: ' + ${param.meet_id}">ID: </p> 
+    <p th:text="'Meeting Id: ' + ${meet.GetMeetingId()}">Meeting Id: </p>
+    <p th:text="'Meeting Admin Id: ' + ${meet.GetAdminUserId()}">Admin: </p>
+    <p th:text="'Meeting Name: ' + ${meet.GetMeetingName()}">Meeting Name: </p>
+    <p th:text="'Meeting Description: ' + ${meet.GetMeetingDescription()}">Meeting Description: </p>
+    <p> ----------------------------------------- </p>
+    <p> -User Test- </p>
         <table>
         <thead>
             <tr>
@@ -34,6 +38,30 @@
             </tr>
         </tbody>
     </table>
-
+    <p> ----------------------------------------- </p>
+    <p> -Admin User Test- </p>
+    <p th:text="'Meeting Admin Id: ' + ${au.GetAdminUserId}">Admin: </p>
+    <p th:text="'Meeting Admin: ' + ${au.GetUserName}">Admin: </p>
+    <p> ----------------------------------------- </p>
+    <p> -Booking Test- </p>
+        <table>
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Scheduler ID</th>
+                <th>Start</th>
+                <th>End</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loops through the 'users' list passed from the controller -->
+            <tr th:each="book : ${books}">
+                <td th:text="${book.GetBookingId()}">Booking Id</td>
+                <td th:text="${book.GetSchedulerId()}">Scheduler Id</td>
+                <td th:text="${book.GetStartTime()}">Start Time</td>
+                <td th:text="${book.GetEndTime()}">End Time</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
