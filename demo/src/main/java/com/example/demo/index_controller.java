@@ -42,9 +42,9 @@ public String view_meet(@RequestParam String meet_id, Model model) {
         model.addAttribute(mdr.GetAvailabilityFromUserId(u.GetUserId()));
     }
     //model.addAttribute(mdr.GetAvailableTimes(Integer.parseInt(meet_id)));
-    model.addAttribute(au) ;
-    model.addAttribute(meet);
-    model.addAttribute(users);
+    model.addAttribute("au", au) ;
+    model.addAttribute("meet", meet);
+    model.addAttribute("users", users);
 
 
     ArrayList<booking> books = mdr.GetBookingFromSchedule(mdr.GetLatestScheduler(Integer.parseInt(meet_id)).GetSchedulerId());

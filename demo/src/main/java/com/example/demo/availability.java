@@ -29,10 +29,10 @@ public class availability {
 
     }
 
-    int GetAvailabilityId() { return availability_id; }
-    int GetUserId() { return user_id; }
-    LocalDateTime GetStartTime() { return startTime; }
-    LocalDateTime GetEndTime() { return endTime; }
-    String GetWeekDay() { return weekDay; }
-    int GetRepeating() { return repeating; }
+    public int GetAvailabilityId() { return availability_id; }
+    public int GetUserId() { return user_id; }
+    public LocalDateTime GetStartTime() { return startTime; }
+    public LocalDateTime GetEndTime() { return endTime; }
+    public String GetWeekDay() { return weekDay; }
+    public int GetRepeating() { return repeating; }
 }

@@ -21,7 +21,7 @@ public class user {
     private int meeting_id;
     user() {}
 
-    int GetUserId(){ return user_id; }
-    String GetUserName() {return user_name; }
-    int GetMeetingId() { return meeting_id; }
+    public int GetUserId(){ return user_id; }
+    public String GetUserName() {return user_name; }
+    public int GetMeetingId() { return meeting_id; }
 }

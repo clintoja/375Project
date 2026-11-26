@@ -12,6 +12,28 @@
 
 <body>
     View Meet test
+   <p th:text="'ID: ' + ${param.meet_id}">ID: </p> 
+   <p th:text="'Meeting Id: ' + ${meet.GetMeetingId()}">Meeting Id: </p>
+   <p th:text="'Meeting Admin Id: ' + ${meet.GetAdminUserId()}">Admin: </p>
+   <p th:text="'Meeting Name: ' + ${meet.GetMeetingName()}">Meeting Name: </p>
+   <p th:text="'Meeting Description: ' + ${meet.GetMeetingDescription()}">Meeting Description: </p>
+        <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>meeting id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loops through the 'users' list passed from the controller -->
+            <tr th:each="user : ${users}">
+                <td th:text="${user.GetUserId()}">user id</td>
+                <td th:text="${user.GetUserName()}">username</td>
+                <td th:text="${user.GetMeetingId()}">meeting id</td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 </html>
