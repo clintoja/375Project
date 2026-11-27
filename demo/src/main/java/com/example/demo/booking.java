@@ -22,8 +22,8 @@ public class booking {
         this.endTime = endTime;
     }
 
-    int GetBookingId() { return booking_id; }
-    int GetSchedulerId() { return scheduler_id; }
-    LocalDateTime GetStartTime() { return startTime; }
-    LocalDateTime GetEndTime() { return endTime; }
+    public int GetBookingId() { return booking_id; }
+    public int GetSchedulerId() { return scheduler_id; }
+    public LocalDateTime GetStartTime() { return startTime; }
+    public LocalDateTime GetEndTime() { return endTime; }
 }

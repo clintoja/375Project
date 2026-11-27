@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -86,11 +87,11 @@ public String edit_meet(@RequestParam String meet_id, Model model) {
 
 
 
-@PostMapping("view-meet")
-public String postMethodName(@RequestBody String entity) {
-    //TODO: process POST request
+@PostMapping("create-meet")
+public String createMeeting( @ModelAttribute   meeting meet) {
+     mdr.CreateMeeting(meet.GetMeetingName(), meet.GetMeetingDescription(),meet.GetAdminUserId()); 
     
-    return entity;
+    return "index";
 }
 
 

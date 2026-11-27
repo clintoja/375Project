@@ -79,7 +79,7 @@ public class meeting_data_repository {
 
     }
 
-    int CreateMeeting(String meeting_name, String meeting_description, int admin_user_id, ArrayList<String> users){
+    int CreateMeeting(String meeting_name, String meeting_description, int admin_user_id){
 
 
         return  sc.CreateMeeting(new meeting(sc.GetNewMeetingId(), admin_user_id, meeting_name, meeting_description ));

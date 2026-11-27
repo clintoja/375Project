@@ -27,28 +27,64 @@ public class SiteContextTests {
     }
 
     @Test
-    @Disabled("Test pending")
+    
     void getUsersFromMeetingId() {
+        site_context sc = new site_context();
+
+        //sc.AddSampleData();
+
+        assertEquals(sc.GetUsersFromMeetingId(1).get(0).GetUserName(), "james" );
+
+
+
     }
 
     @Test
-    @Disabled("Test pending")
+    
     void getAvailabilityFromUserId() {
+
+                site_context sc = new site_context();
+
+        //sc.AddSampleData();
+
+        assertEquals(sc.GetAvailabilityFromUserId(1).get(0).GetWeekDay(), "Tuesday" );
+
+
     }
 
     @Test
-    @Disabled("Test pending")
+    
     void getBookingFromSchedule() {
+                site_context sc = new site_context();
+
+        sc.AddSampleData();
+
+        assertEquals(sc.GetBookingFromSchedule(1).get(0).GetStartTime().getDayOfMonth(), 2 );
+
     }
 
     @Test
-    @Disabled("Test pending")
+   
     void getSchedulerFromMeeting() {
+
+                        site_context sc = new site_context();
+
+        sc.AddSampleData();
+
+        assertEquals(sc.GetSchedulerFromMeeting(1).get(0).GetStartTime().getDayOfMonth(), 1);
     }
 
     @Test
-    @Disabled("Test pending")
+  
     void getMeeting() {
+
+
+                        site_context sc = new site_context();
+
+        sc.AddSampleData();
+
+        assertEquals(sc.GetMeeting(1).GetMeetingName(),"my meeting"  );
+
     }
 
     @Test
@@ -57,8 +93,17 @@ public class SiteContextTests {
     }
 
     @Test
-    @Disabled("Test pending")
+
     void getAdminUserFromMeetingId() {
+
+
+        
+
+                        site_context sc = new site_context();
+
+        sc.AddSampleData();
+
+        assertEquals(sc.GetAdminUserFromMeetingId(1).GetUserName(),"admin"  );
     }
 
     @Test
@@ -92,7 +137,7 @@ public class SiteContextTests {
     }
 
     @Test
-    @Disabled("Test pending")
+    @Disabled("NonUsed Function")
     void getNewMeetingId() {
     }
 }

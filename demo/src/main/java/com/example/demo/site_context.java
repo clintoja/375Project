@@ -87,6 +87,7 @@ public class site_context {
                create_tables_state.execute( "insert into availability VALUES(4, '2026-09-02 00:00', '2026-09-02 02:00', 'Wednesday', 2, 1); " + "\r\n" );
                create_tables_state.execute( "insert into availability VALUES(5, '2026-09-01 00:00', '2026-09-01 02:00', 'Tuesday', 3, 1); " + "\r\n" );
                create_tables_state.execute( "insert into availability VALUES(6, '2026-09-02 00:00', '2026-09-02 02:00', 'Wednesday', 3, 1 ); " + "\r\n" );
+                               create_tables_state.execute( "insert into booking VALUES(1, 1, '2026-09-02 00:00', '2026-09-02 02:00'); " + "\r\n" );
 
             connection.close();
                                 
@@ -452,17 +453,17 @@ public class site_context {
      */
     public int CreateMeeting(meeting meet) {
         String sql = """
-                INSERT INTO meeting (meeting_id, meeting_name, meeting_description, admin_user_id)
-                VALUES (?, ?, ?, ?)
+                INSERT INTO meeting (meeting_name, meeting_description, admin_user_id)
+                VALUES (?, ?, ?)
                 RETURNING meeting_id
                 """;
 
         try (Connection connection = OpenConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, meet.GetMeetingId());
-            statement.setString(2, meet.GetMeetingName());
-            statement.setString(3, meet.GetMeetingDescription());
-            statement.setInt(4, meet.GetAdminUserId());
+            //statement.setInt(1, meet.GetMeetingId());
+            statement.setString(1, meet.GetMeetingName());
+            statement.setString(2, meet.GetMeetingDescription());
+            statement.setInt(3, meet.GetAdminUserId());
 
             try (ResultSet rows = statement.executeQuery()) {
                 return rows.next() ? rows.getInt("meeting_id") : 0;
