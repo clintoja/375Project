@@ -26,4 +26,9 @@ public class booking {
     public int GetSchedulerId() { return scheduler_id; }
     public LocalDateTime GetStartTime() { return startTime; }
     public LocalDateTime GetEndTime() { return endTime; }
+
+
+    public void setSchedulerId(int scheduler_id) { this.scheduler_id = scheduler_id; }
+    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
+    public void setEndTime(LocalDateTime endTime) { this.endTime =  endTime; }
 }

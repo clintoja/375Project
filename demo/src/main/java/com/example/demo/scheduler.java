@@ -30,4 +30,29 @@ private int minutes;
     public int GetSchedulerId() {
         return scheduler_id;
     }
+        public LocalDateTime GetEndTime() {
+        return endTime;
+    }
+
+            public int GetMeetingId() {
+        return meeting_id;
+    }
+              public int GetMinutes() {
+        return minutes;
+    }
+
+        public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
+
+        public void setEndTime(LocalDateTime endTime) {
+        this.endTime =  endTime;
+    }
+
+            public void setMeetingId(int meetint_id) {
+        this.meeting_id =  meeting_id;
+    }
+              public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
 }

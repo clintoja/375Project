@@ -24,4 +24,9 @@ public class user {
     public int GetUserId(){ return user_id; }
     public String GetUserName() {return user_name; }
     public int GetMeetingId() { return meeting_id; }
+
+
+ 
+    public void setUserName(String user_name) {this.user_name = user_name; }
+    public void setMeetingId(int meeting_id) { this.meeting_id =  meeting_id; }
 }

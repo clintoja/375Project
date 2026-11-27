@@ -26,4 +26,7 @@ public class meeting {
     public int GetAdminUserId() { return admin_user_id; }
     public String GetMeetingName() { return meeting_name; }
     public String GetMeetingDescription() { return meeting_description; }
+    public void setAdminUserId(int admin_user_id) { this.admin_user_id =  admin_user_id; }
+    public void setMeetingName( String meeting_name) { this.meeting_name = meeting_name; }
+    public void setMeetingDescription(String meeting_description) { this.meeting_description = meeting_description; }
 }

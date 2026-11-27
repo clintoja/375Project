@@ -35,4 +35,13 @@ public class availability {
     public LocalDateTime GetEndTime() { return endTime; }
     public String GetWeekDay() { return weekDay; }
     public int GetRepeating() { return repeating; }
+
+
+
+
+    public void setUserId(int user_id ) { this.user_id = user_id; }
+    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
+    public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }
+    public void setWeekDay( String weekDay) { this.weekDay = weekDay; }
+    public void setRepeating(int repeating) { this.repeating = repeating; }
 }
